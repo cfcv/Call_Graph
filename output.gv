@@ -1,0 +1,13 @@
+digraph CallGraph {
+	n1 [label="int main( )"];
+	n2 [label="int max(int, int)"];
+	n3 [label="int a( )"];
+	n4 [label="int b( )"];
+	n5 [label="int c( )"];
+	n1 -> n3;
+	n1 -> n4;
+	n1 -> n5;
+	n3 -> n2;
+	n4 -> n2;
+	n5 -> n2;
+}

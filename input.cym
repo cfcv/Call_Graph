@@ -1,0 +1,72 @@
+void main( ) {
+    int x = 8;
+    int nmax = max(0, max(fat(x), fib(x)));
+    
+    if (nmax > 10000) {
+        doSomething(nmax - 10000, 0, 0);
+    } else {
+        doSomethingElse(10000 - nmax, 0, 0);
+    }
+    
+    return;
+}
+
+int max(int a, int b) {
+    int nmax = b;
+    if (a > b) {
+        nmax = a;
+    }
+    
+    return nmax;
+}
+
+int min(int a, int b) {
+    int nmin = b;
+    if (a < b) {
+        nmin = a;
+    }
+    
+    return nmin;
+}
+
+int fat(int x) {
+    if (x <= 1) {
+        return 1;
+    } else {
+        return x * fat(x - 1);
+    }
+}
+
+int fib(int x) {
+    if (x <= 1) {
+        return x;
+    } else {
+        return fib(x - 2) + fib(x - 1);
+    }
+}
+
+int doSomething(int st, int count1, int count2) {
+    if (st == 0) {
+        return count1;
+    } else if (st < 0) {
+        doesNothing( );
+        return 0;
+    } else {
+        return doSomethingElse(st - 1, count1, count2 + 1);
+    }
+}
+
+int doSomethingElse(int st, int count1, int count2) {
+    if (st == 0) {
+        return count2;
+    } else if (st < 0) {
+        doesNothing( );
+        return 0;
+    } else {
+        return doSomething(st - 1, count1 + 1, count2);
+    }
+}
+
+void doesNothing( ) {
+    return;
+}
